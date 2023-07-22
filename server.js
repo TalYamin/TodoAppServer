@@ -1,5 +1,3 @@
-// Tal Yamin 313307662
-
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
