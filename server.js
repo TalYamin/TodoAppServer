@@ -1,13 +1,11 @@
 const express = require("express");
 const app = express();
+const port = 9583;
 const bodyParser = require("body-parser");
 const todoRouter = require('./routes/todoRouter')
-let requestCounter = 0;
 const { requestLogger, todoLogger } = require('./log4js.js')
-const log4js = require('log4js');
 const logsRouter = require('./routes/logsRouter')
 const {increaseRequestCounter ,decreaseRequestCounter } = require('./helpers/requestCounter.js');
-
 
 
 app.use(
@@ -43,6 +41,6 @@ app.use("/todo", todoRouter);
 
 app.use("/logs", logsRouter);
 
-app.listen(9583, () => {
-  // console.log("Server listening on port 8496...\n");
+app.listen(port, () => {
+   console.log(`Server listening on port ${port}...\n`);
 });
